@@ -20,50 +20,50 @@ public class Rook extends ChessPiece {
 	public boolean[][] possibleMoves() {		
 		boolean[][] moves = new boolean[getBoard().getRows()][getBoard().getColumns()];
 		
-		Position initialPosition = new Position(0, 0);
+		Position localPosition = new Position(0, 0); //aux
 		
 		//Above
-		initialPosition.setValues(position.getRow() - 1, position.getColumn());
-		while ((getBoard().positionExists(initialPosition)) && (!getBoard().thereIsAPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
-			initialPosition.setRow(initialPosition.getRow() - 1);
+		localPosition.setValues(position.getRow() - 1, position.getColumn());
+		while ((getBoard().positionExists(localPosition)) && (!getBoard().thereIsAPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
+			localPosition.setRow(localPosition.getRow() - 1);
 		}
 		
-		if ((getBoard().positionExists(initialPosition)) && (isThereOpponentPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
+		if ((getBoard().positionExists(localPosition)) && (isThereOpponentPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
 		}
 		
 		//Left
-		initialPosition.setValues(position.getRow(), position.getColumn() - 1);
-		while ((getBoard().positionExists(initialPosition)) && (!getBoard().thereIsAPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
-			initialPosition.setColumn(initialPosition.getColumn() - 1);
+		localPosition.setValues(position.getRow(), position.getColumn() - 1);
+		while ((getBoard().positionExists(localPosition)) && (!getBoard().thereIsAPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
+			localPosition.setColumn(localPosition.getColumn() - 1);
 		}
 
-		if ((getBoard().positionExists(initialPosition)) && (isThereOpponentPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
+		if ((getBoard().positionExists(localPosition)) && (isThereOpponentPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
 		}
 		
 		//Right
-		initialPosition.setValues(position.getRow(), position.getColumn() + 1);
-		while ((getBoard().positionExists(initialPosition)) && (!getBoard().thereIsAPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
-			initialPosition.setColumn(initialPosition.getColumn() + 1);
+		localPosition.setValues(position.getRow(), position.getColumn() + 1);
+		while ((getBoard().positionExists(localPosition)) && (!getBoard().thereIsAPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
+			localPosition.setColumn(localPosition.getColumn() + 1);
 		}
 
-		if ((getBoard().positionExists(initialPosition)) && (isThereOpponentPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
+		if ((getBoard().positionExists(localPosition)) && (isThereOpponentPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
 		}
 		
 		//Below
-		initialPosition.setValues(position.getRow() + 1, position.getColumn());
-		while ((getBoard().positionExists(initialPosition)) && (!getBoard().thereIsAPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
-			initialPosition.setRow(initialPosition.getRow() + 1);
+		localPosition.setValues(position.getRow() + 1, position.getColumn());
+		while ((getBoard().positionExists(localPosition)) && (!getBoard().thereIsAPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
+			localPosition.setRow(localPosition.getRow() + 1);
 		}
 
-		if ((getBoard().positionExists(initialPosition)) && (isThereOpponentPiece(initialPosition))) {
-			moves[initialPosition.getRow()][initialPosition.getColumn()] = true;
+		if ((getBoard().positionExists(localPosition)) && (isThereOpponentPiece(localPosition))) {
+			moves[localPosition.getRow()][localPosition.getColumn()] = true;
 		}
 		
 		return moves;
