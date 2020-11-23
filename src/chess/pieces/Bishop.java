@@ -13,7 +13,7 @@ public class Bishop extends ChessPiece {
 
 	@Override
 	public boolean[][] possibleMoves() {		
-boolean[][] moves = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		boolean[][] moves = new boolean[getBoard().getRows()][getBoard().getColumns()];
 		
 		Position localPosition = new Position(0, 0); //aux
 		
